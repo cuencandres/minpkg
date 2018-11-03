@@ -1,0 +1,21 @@
+language: python
+python:
+- '3.6'
+- '3.7-dev'
+script: python setup.py test
+
+jobs:
+  include:
+    - stage: pypi release
+      python: '3.6'
+      script: echo "release package to pypi"
+      deploy:
+        provider: pypi
+        twine_version: 1.12.1
+        user: felipaoo
+        on:
+          tags: true
+        password:
+          secure: "Nm121tiRKnwk6fjggYWgMNxtUkXzrBUcC3BCvKYa1sojtpXmK+mrAPDHyoAtK/ORLJYZ3ZJj1UnP6XE0iPRiT5WliyP9xEBOcVyKycNdk0WJpB66j7VmJDXn/1rchGefTF2LKK/Lbi8j+lk7b+ZD9APR0bv52xhkHUB7NHJxIL1b02NLOYQX9C4SEhMDOHvK8nLmrmq1OHPD7+A6el3KBmfiL3elSiH0NNVx1q+EDryXgstrHegwXnDjy0oE09u/t7ewYFm8TZu4qPHH+W7PRiD4xT2l62s8/KOBaJSgfgM3aIMIMsTRpt89QiXJ1VJhehaqrwbVz+vGXhSuWFWrUiVIN+PRdRW0sZdR1Rq9OMenhsWriiEQ83HqPSmdmA5a8pposlH80B8J0AzksrNwyV9Lw44vpk9BlwTzD9tSjBRH+fheabufm3WvYRYWs620fEEXi0OX5lhpJ8pCy0cip4TICM6SGu8Koz1VZ4h0Ecc/nQ+g9s5YkZLtw4G9Ic7Si7YS83ea6VgFRaKRNgrZiJIfafdgieup7IvKfYs8ExE8jl34ro4x8UGnC7vSjAMW3y+7ngmw9Yt3ruLlFM+Bq4XhA+BK+lrj/iJQPV7fwaPKtYDI4l2IMSnANS2oLyqKlDMtW7Lvh0GezgMQWN2VA4kWa5H0b1CYcofrfDC8O38="
+        server: https://test.pypi.org/legacy/
+        distributions: sdist bdist_wheel
