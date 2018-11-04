@@ -6,12 +6,11 @@ script: python setup.py test
 
 jobs:
   include:
-    - stage: pypi release
-      python: '3.6'
-      script: echo "release package to pypi"
+    - stage: Pypi Upload
+      python: '3.7-dev'
+      script: echo "Uploading packages to Pypi"
       deploy:
         provider: pypi
-        twine_version: 1.12.1
         user: felipaoo
         on:
           tags: true
