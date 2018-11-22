@@ -5,12 +5,15 @@ script: python setup.py test
 jobs:
   include:
     - stage: test
+      python: 3.6
+    - stage: test
       python: 3.7
       dist: xenial
       sudo: true
-    - stage: test
-      python: 3.6
     - stage: Pypi Upload
+      python: 3.7
+      dist: xenial
+      sudo: true
       script: echo "Uploading packages to Pypi"
       deploy:
         provider: pypi
