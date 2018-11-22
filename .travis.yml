@@ -5,7 +5,6 @@ jobs:
     - stage: test
       python: 3.6
       script: python setup.py test
-    - stage: test
       python: 3.7
       dist: xenial
       sudo: true
