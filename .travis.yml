@@ -1,15 +1,24 @@
 language: python
 
-script: python setup.py test
+script: 
+  - python setup.py test
 
 jobs:
   include:
     - stage: test
       python: 3.6
-    - 
+    - # same stage name (test)
       python: 3.7
       dist: xenial
       sudo: true
+    - stage: code coverage
+      python: 3.7
+      dist: xenial
+      sudo: true
+      install: pip install coveralls
+      script: 
+        - coverage run --source=minpkg setup.py test
+        - coveralls
     - stage: Pypi Upload
       python: 3.7
       dist: xenial
