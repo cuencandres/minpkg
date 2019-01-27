@@ -5,3 +5,6 @@ def say_hello():
 
 def say_goodbye():
     return "goodbye!!"
+
+def say_my_name():
+    return "python"
