@@ -8,3 +8,6 @@ def say_goodbye():
 
 def say_my_name():
     return "python"
+
+def say_thanks():
+	return "thanks"
