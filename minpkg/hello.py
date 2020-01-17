@@ -1,7 +1,7 @@
 import sys
 
 def say_hello():
-    return "hello"
+    return "hello!"
 
 def say_goodbye():
     return "Goodbye!!"
